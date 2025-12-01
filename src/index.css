@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+.lato-font {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+}
+
+a {
+  font-size: 24px;
+  margin-right: 24px;
+}
+a.active {
+  color: #ffdd59;
+  text-decoration: underline;
+}
+
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #FC427B;
+  --color-secondary: #fa8231;
+  --color-accent: green;
+}
