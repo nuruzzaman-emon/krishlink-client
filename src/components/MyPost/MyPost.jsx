@@ -5,7 +5,7 @@ import Crop from "../Crop/Crop";
 
 const MyPost = () => {
   const [crops, setCrops] = useState([]);
-  console.log(crops);
+  // console.log(crops);
   const { user } = useAuth();
   const axiosinstance = useAxios();
   useEffect(() => {
@@ -22,7 +22,7 @@ const MyPost = () => {
   }, [axiosinstance, user]);
   return (
     <div className="bg-[#273c75] hover:bg-[#273c32] py-12 ">
-      <h2 className="text-5xl font-bold text-white text-center">
+      <h2 className="text-3xl md:text-5xl font-bold text-white text-center">
         My Crops Are Here
       </h2>
       <div>

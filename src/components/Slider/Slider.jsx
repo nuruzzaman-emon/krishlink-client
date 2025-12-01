@@ -31,7 +31,7 @@ const Slider = () => {
     >
       <SwiperSlide>
         <div className="relative h-[500px]">
-          <h2 className="text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
+          <h2 className="text-xl md:text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
             Your Path to a Bumper Harvest Starts Here.
           </h2>
           <img
@@ -43,7 +43,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="relative h-[500px]">
-          <h2 className="text-3xl font-bold inset-0 absolute flex justify-center text-[#575fcf] mt-12 z-10">
+          <h2 className="text-xl md:text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
             Nourish and Protect: Growth Powered by Precision.
           </h2>
           <img
@@ -55,7 +55,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="relative h-[500px]">
-          <h2 className="text-3xl font-bold inset-0 absolute flex justify-center text-[#B33771] mt-12 z-10">
+          <h2 className="text-xl md:text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
             Grown Where Nature Meets Perfection.
           </h2>
           <img
@@ -67,7 +67,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="relative h-[500px]">
-          <h2 className="text-3xl font-bold inset-0 absolute flex justify-center text-[#40407a] mt-12 z-10">
+          <h2 className="text-xl md:text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
             Precision Grown. Predictably Perfect Harvests.
           </h2>
           <img
@@ -79,7 +79,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="relative h-[500px]">
-          <h2 className="text-3xl font-bold inset-0 absolute flex justify-center text-[#FC427B] mt-12 z-10">
+          <h2 className="text-xl md:text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
             Flavourful Variety, Straight From the Farm.
           </h2>
           <img
@@ -91,7 +91,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="relative h-[500px]">
-          <h2 className="text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
+          <h2 className="text-xl md:text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
             Performance That Delivers, Rain or Shine.
           </h2>
           <img
@@ -103,7 +103,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="relative h-[500px]">
-          <h2 className="text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
+          <h2 className="text-xl md:text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
             Precision Farming. Perfect Produce. Every Time.
           </h2>
           <img
@@ -115,7 +115,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="relative h-[500px]">
-          <h2 className="text-3xl font-bold inset-0 absolute flex justify-center text-[#f53b57] mt-12 z-10">
+          <h2 className="text-xl md:text-3xl font-bold inset-0 absolute flex justify-center text-[#f9ca24] mt-12 z-10">
             Powered by Technology. Rooted in Care.
           </h2>
           <img

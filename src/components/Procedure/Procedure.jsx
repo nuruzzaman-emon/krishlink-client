@@ -3,14 +3,14 @@ import React from "react";
 const Procedure = () => {
   return (
     <div className="bg-[#273c75] hover:bg-[#273c32] py-6 ">
-      <h2 className="text-5xl font-bold text-white text-center mb-16">
+      <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-16">
         How Our Platform Makes Trading Easy
       </h2>
       <div className="w-11/12 mx-auto">
         {/* procedure starts */}
         <div className="lg:h-[600px] md:relative space-y-3">
           <div className="lg:w-[35%] lg:h-50 lg:absolute lg:top-50 lg:left-[32%] bg-[#f7f1e3] lg:bg-[#706fd3] lg:text-white  p-6 rounded-xl flex justify-center items-center">
-            <h2 className="text-3xl font-semibold text-[#ffb142] text-center">
+            <h2 className="text-xl md:text-3xl font-semibold text-[#ffb142] text-center">
               See How Everything <br /> <span className="">Comes Together</span>
             </h2>
           </div>

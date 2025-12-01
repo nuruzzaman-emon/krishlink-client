@@ -2,10 +2,13 @@ import React from "react";
 import useAuth from "../../hooks/UseAuth";
 import useAxios from "../../hooks/useAxios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const AddCrops = () => {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const axiosInstance = useAxios();
+
   const handleAddCrop = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -39,6 +42,7 @@ const AddCrops = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate("/mypost");
         console.log(data.data);
       })
       .catch((err) => console.log(err));
@@ -46,7 +50,10 @@ const AddCrops = () => {
     console.log(newCrop);
   };
   return (
-    <div className="card bg-base-100 w-full max-w-xl mx-auto mt-8 shrink-0 shadow-2xl  ">
+    <div className="card bg-base-100 w-full max-w-md lg:max-w-xl mx-auto mt-8 shrink-0 shadow-2xl  ">
+      <h2 className="text-3xl font-bold text-center ">
+        Provide Your Crop's Data
+      </h2>
       <div className="card-body">
         <form onSubmit={handleAddCrop}>
           <fieldset className="fieldset scroll-py-2">

@@ -9,11 +9,10 @@
 }
 
 a {
-  font-size: 24px;
   margin-right: 24px;
 }
 a.active {
-  color: #ffdd59;
+  color: #ffa502;
   text-decoration: underline;
 }
 
@@ -22,7 +21,7 @@ a.active {
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #FC427B;
+  --color-primary: #fc427b;
   --color-secondary: #fa8231;
   --color-accent: green;
 }

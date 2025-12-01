@@ -5,9 +5,9 @@ import { GiGrassMushroom } from "react-icons/gi";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
-  console.log(user);
+  // console.log(user);
   const links = (
-    <>
+    <div className="text-lg md:text-2xl font-bold">
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/allcrops"}>AllCrops</NavLink>
       {!user && (
@@ -19,13 +19,10 @@ const Navbar = () => {
 
       {user && (
         <>
-          <NavLink to="/mypost">My Post</NavLink>
-          <NavLink to="/myinterest">My Interest</NavLink>
-          <NavLink to="/profile">Profile</NavLink>
           <NavLink to="/addcrops">Add Crops</NavLink>
         </>
       )}
-    </>
+    </div>
   );
   return (
     <div>
@@ -36,7 +33,30 @@ const Navbar = () => {
         </div>
         {user ? (
           <div className="flex items-center gap-2">
-            <img className="w-10 h-10 rounded-4xl" src={user.photoURL} alt="" referrerpolicy="no-referrer" />
+            <div className="dropdown dropdown-hover">
+              <div tabIndex={0} className=" m-1">
+                <img
+                  className="w-10 h-10 rounded-4xl"
+                  src={user.photoURL}
+                  alt=""
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+              <ul
+                tabIndex="-1"
+                className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 p-2 shadow-sm"
+              >
+                <li className="font-bold text-[#FC427B]">
+                  <NavLink to="/profile">My Profile</NavLink>
+                </li>
+                <li className="font-bold text-[#FC427B]">
+                  <NavLink to="/mypost">My Post</NavLink>
+                </li>
+                <li className="font-bold text-[#FC427B]">
+                  <NavLink to="/myinterest">My Interest</NavLink>
+                </li>
+              </ul>
+            </div>
             <button
               onClick={() => logOutUser()}
               className="btn btn-primary text-white"
@@ -55,7 +75,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      <div className="flex justify-center items-center bg-[#a5b1c2] p-4">
+      <div className="flex justify-center items-center bg-[#0a3d62] p-4 text-white">
         {links}
       </div>
     </div>

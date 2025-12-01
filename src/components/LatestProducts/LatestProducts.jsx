@@ -6,7 +6,7 @@ const LatestProducts = ({ crops }) => {
   // console.log(crops);
   return (
     <div className="   bg-[#273c75] hover:bg-[#273c32] py-6">
-      <h2 className="text-5xl font-bold text-white text-center">
+      <h2 className="text-3xl md:text-5xl font-bold text-white text-center">
         Our <span className="text-[#F79F1F]">Latest Crops</span> Are Here
       </h2>
       <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">

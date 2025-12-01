@@ -19,7 +19,7 @@ const AgroNews = () => {
 
   return (
     <div className="bg-[#273c75] hover:bg-[#273c32] py-12">
-      <h2 className="text-5xl font-bold text-white text-center mb-12">
+      <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-12">
         Latest Farming Updates
       </h2>
       <div
@@ -35,10 +35,10 @@ const AgroNews = () => {
             src={"https://i.ibb.co.com/21h5XsBc/popcorn2.jpg"}
             alt=""
           />
-          <h2 className="text-2xl font-bold text-[#273c75] my-3">
+          <h2 className="text-xl md:text-2xl font-bold text-[#273c75] my-3">
             A Story of Two Maize Plans—and a Better Farmer-Led Food System
           </h2>
-          <p className="text-lg">
+          <p className="md:text-lg">
             {expand ? maizePlan : preview}
 
             <button
@@ -57,10 +57,10 @@ const AgroNews = () => {
             src={"https://i.ibb.co.com/HTG5Sjmt/asianfarm.jpg"}
             alt=""
           />
-          <h2 className="text-2xl font-bold text-[#273c75] my-3">
+          <h2 className="text-xl md:text-2xl font-bold text-[#273c75] my-3">
             Asia’s Farmers Root for a Resilient Future
           </h2>
-          <p className="text-lg">
+          <p className="md:text-lg">
             {expand ? asianFarmer : previewAsianFarmer}
             <button
               className="text-base font-bold text-blue-500"
@@ -78,11 +78,11 @@ const AgroNews = () => {
             src={"https://i.ibb.co.com/DPjBNbLY/africanfarmer.webp"}
             alt=""
           />
-          <h2 className="text-2xl font-bold text-[#273c75] my-3">
+          <h2 className="text-xl md:text-2xl font-bold text-[#273c75] my-3">
             Financing Africa’s Food Systems Transformation: Challenges and
             Pathways to Drive Growth and Nutrition Security Across the Continent
           </h2>
-          <p className="text-lg">
+          <p className="md:text-lg">
             {expand ? africanFarmar : previewAfricanFarmar}
             <button
               className="text-base font-bold text-blue-500"
@@ -100,10 +100,10 @@ const AgroNews = () => {
             src={"https://i.ibb.co.com/8ggxxX19/fruits.jpg"}
             alt=""
           />
-          <h2 className="text-2xl font-bold text-[#273c75] my-3">
+          <h2 className="text-xl md:text-2xl font-bold text-[#273c75] my-3">
             From Molecules to Markets: Building a Food Intelligence Economy
           </h2>
-          <p className="text-lg">
+          <p className="md:text-lg">
             {expand ? economicalAgro : previewEconomicalAgro}
             <button
               className="text-base font-bold text-blue-500"

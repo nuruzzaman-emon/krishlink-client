@@ -23,7 +23,7 @@ const MyInterest = () => {
   }, [axiosInstance, user]);
   return (
     <div className="bg-[#273c75] hover:bg-[#273c32] py-12 ">
-      <h2 className="text-5xl font-bold text-white text-center">
+      <h2 className="text-3xl  md:text-5xl font-bold text-white text-center">
         My Interest Page
       </h2>
       <div className="flex justify-center items-center flex-wrap text-white text-center mt-12">

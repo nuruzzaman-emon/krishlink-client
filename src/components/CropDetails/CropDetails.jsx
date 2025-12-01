@@ -157,7 +157,7 @@ const CropDetails = () => {
   return (
     <div className="bg-[#273c75] hover:bg-[#636e72]">
       <div className="w-11/12 mx-auto  py-12">
-        <div className=" crop-card bg-white shadow-md rounded-xl flex justify-between items-center mt-12">
+        <div className=" crop-card bg-white shadow-md rounded-xl flex flex-col lg:flex-row justify-between items-center mt-12">
           {/* Image */}
           <div className="h-[400px] w-full overflow-hidden flex-1">
             <img
@@ -286,9 +286,9 @@ const CropDetails = () => {
                         <td className="p-3">
                           {interest.userName ? interest.userName : "userName"}
                         </td>
-                        <td className="p-3">{interest.quantity}</td>
-                        <td className="p-3">{interest.message}</td>
-                        <td className="p-3">
+                        <td className=" p-1 md:p-3">{interest.quantity}</td>
+                        <td className=" p-1 md:p-3">{interest.message}</td>
+                        <td className=" p-1 md:p-3">
                           <span
                             className={`badge ${
                               interest.status === "accepted"
