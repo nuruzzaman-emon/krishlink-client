@@ -1,5 +1,4 @@
 KrishiLink – Agriculture Product Marketplace<br/>
-<br/>
 A React + Firebase + MongoDB based platform for buying and selling agricultural products.<br/>
 <br/>
 <br/>
@@ -62,9 +61,7 @@ Authenticated Users:<br/>
 <br/>
 Tech Stack<br/>
 <br/>
-
 Frontend:<br/>
-<br/>
 <br/>
 (a) React.js<br/>
 <br/>
@@ -85,7 +82,6 @@ Frontend:<br/>
 
 Backend:<br/>
 <br/>
-<br/>
 (a) Node.js<br/>
 <br/>
 (b) Express.js<br/>
@@ -99,8 +95,6 @@ Backend:<br/>
 (c) firebase admin<br/>
 <br/>
 <br/>
-<br/>
-
 Authentication:<br/>
 <br/>
 (a) Firebase Authentication<br/>
