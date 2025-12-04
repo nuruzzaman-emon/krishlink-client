@@ -32,7 +32,6 @@ const Crop = ({ crop }) => {
           </button>
         </Link>
       </div>
-      ;
     </div>
   );
 };

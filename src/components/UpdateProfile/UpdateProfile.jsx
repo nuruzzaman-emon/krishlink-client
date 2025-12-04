@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import useAuth from "../../hooks/UseAuth";
+import { useNavigate } from "react-router";
 
 const UpdateProfile = () => {
+  const [err, setErr] = useState("");
+  const { modifyData } = useAuth();
+  const navigate = useNavigate();
+
   const handleUpdateForm = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const photo = e.target.photo.value;
-    console.log(name, photo);
+    const newData = {
+      displayName: name,
+      photoURL: photo,
+    };
+    modifyData(newData)
+      .then(() => {
+        navigate("/profile");
+        s;
+      })
+      .catch((err) => setErr(err.message));
   };
 
   return (
@@ -30,7 +45,7 @@ const UpdateProfile = () => {
               placeholder="photo"
               name="photo"
             />
-
+            {err && <p>{err}</p>}
             <button className="btn btn-primary mt-4">Update</button>
           </fieldset>
         </form>

@@ -33,21 +33,25 @@ const AddCrops = () => {
     };
 
     axiosInstance
-      .post("/allcrops", newCrop)
-      .then((data) => {
+      .post("allcrops", newCrop, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
+      .then(() => {
         Swal.fire({
-          position: "top-center",
+          position: "center",
           icon: "success",
           title: "The crop has been added usccessfully",
           showConfirmButton: false,
           timer: 1500,
         });
         navigate("/mypost");
-        console.log(data.data);
+        // console.log(data.data);
       })
-      .catch((err) => console.log(err));
+      // .catch((err) => console.log(err));
 
-    console.log(newCrop);
+    // console.log(newCrop);
   };
   return (
     <div className="card bg-base-100 w-full max-w-md lg:max-w-xl mx-auto mt-8 shrink-0 shadow-2xl  ">

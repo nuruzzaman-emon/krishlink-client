@@ -28,6 +28,7 @@ const Slider = () => {
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
+      allowTouchMove={false}
     >
       <SwiperSlide>
         <div className="relative h-[500px]">

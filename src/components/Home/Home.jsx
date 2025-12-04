@@ -13,7 +13,7 @@ const Home = () => {
   const axiosInstance = useAxios();
 
   useEffect(() => {
-    axiosInstance.get("/latest-crops").then((data) => {
+    axiosInstance.get("latest-crops").then((data) => {
       setCrops(data.data);
       setLoading(false);
     });

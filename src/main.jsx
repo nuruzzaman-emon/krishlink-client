@@ -16,6 +16,7 @@ import AddCrops from "./components/AddCrops/AddCrops.jsx";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import UpdateProfile from "./components/UpdateProfile/UpdateProfile.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,19 +28,19 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/allcrops",
+        path: "allcrops",
         element: <AllCrops></AllCrops>,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login></Login>,
       },
       {
-        path: "/register",
+        path: "register",
         element: <Register></Register>,
       },
       {
-        path: "/allcrops/:id",
+        path: "allcrops/:id",
         element: (
           <PrivateRoute>
             <CropDetails></CropDetails>
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
             <UpdateProfile></UpdateProfile>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>,
       },
     ],
   },

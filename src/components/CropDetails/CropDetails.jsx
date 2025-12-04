@@ -12,7 +12,6 @@ const CropDetails = () => {
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const [staus, setStatus] = useState("");
 
   // console.log(crop);
   // console.log(crop?._id);
@@ -24,7 +23,7 @@ const CropDetails = () => {
   useEffect(() => {
     if (crop?._id) {
       axiosinstance
-        .get(`/product-interests/${crop?._id}`, {
+        .get(`product-interests/${crop?._id}`, {
           headers: {
             authorization: `Bearer ${user.accessToken}`,
           },
@@ -32,17 +31,18 @@ const CropDetails = () => {
         .then((data) => {
           // console.log(data);
           setInterests(data.data);
-          console.log(data.data);
+          // console.log(data.data);
           setLoading(false);
         });
     }
-  }, [crop?._id]);
+  }, [crop]);
 
+  //for cropdetails
   useEffect(() => {
     if (!user?.accessToken) return;
 
     axiosinstance
-      .get(`/allcrops/${id}`, {
+      .get(`allcrops/${id}`, {
         headers: {
           authorization: `Bearer ${user.accessToken}`,
         },
@@ -51,14 +51,13 @@ const CropDetails = () => {
         setCrop(res.data);
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(() => {
         navigate("/register");
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "Unauthorized access!",
         });
-        console.log(err?.response?.data?.message);
       });
   }, [axiosinstance, id, user?.accessToken, navigate]);
 
@@ -84,32 +83,31 @@ const CropDetails = () => {
       status: "pending",
       cropId: crop?._id,
     };
-    console.log(newInterest);
 
     axiosinstance
-      .post("/myinterest", newInterest, {
+      .post("myinterest", newInterest, {
         headers: {
           authorization: ` Bearer ${user.accessToken}`,
         },
       })
-      .then((data) => {
+      .then(() => {
         Swal.fire({
-          position: "top-center",
+          position: "center",
           icon: "success",
           title: "Your interest has been submitted successfully",
           showConfirmButton: false,
           timer: 1500,
         });
         setLoading(false);
-        console.log(data.data);
-      })
-      .catch((err) => console.log(err));
+        navigate("/myinterest");
+      });
+    // .catch((err) => console.log(err));
   };
 
   const handleAccept = (id) => {
     axiosinstance
       .patch(
-        `/product-interests/${id}`,
+        `product-interests/${id}`,
         { status: "accepted" },
         {
           headers: {
@@ -117,20 +115,18 @@ const CropDetails = () => {
           },
         }
       )
-      .then((data) => {
+      .then(() => {
         setInterests((prev) =>
           prev.map((item) =>
             item._id === id ? { ...item, status: "accepted" } : item
           )
         );
-
-        console.log(data.data);
       });
   };
   const handleReject = (id) => {
     axiosinstance
       .patch(
-        `/product-interests/${id}`,
+        `product-interests/${id}`,
         { status: "rejected" },
         {
           headers: {
@@ -138,16 +134,14 @@ const CropDetails = () => {
           },
         }
       )
-      .then((data) => {
+      .then(() => {
         setInterests((prev) =>
           prev.map((item) =>
             item._id === id ? { ...item, status: "rejected" } : item
           )
         );
-        console.log(data.data);
       });
 
-    console.log("rejected");
   };
 
   if (loading) {

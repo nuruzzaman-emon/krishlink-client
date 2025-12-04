@@ -2,7 +2,6 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
-  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -51,7 +50,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     });
     return () => {
-      unSubscribe();
+      return unSubscribe();
     };
   }, []);
 

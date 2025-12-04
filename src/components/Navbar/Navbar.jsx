@@ -1,10 +1,19 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import useAuth from "../../hooks/UseAuth";
 import { GiGrassMushroom } from "react-icons/gi";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logOutUser().then(() => {
+      navigate("/login");
+    });
+  };
+
   // console.log(user);
   const links = (
     <div className="text-lg md:text-2xl font-bold">
@@ -35,12 +44,16 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <div className="dropdown dropdown-hover">
               <div tabIndex={0} className=" m-1">
-                <img
-                  className="w-10 h-10 rounded-4xl"
-                  src={user.photoURL}
-                  alt=""
-                  referrerpolicy="no-referrer"
-                />
+                {user?.photoURL ? (
+                  <img
+                    className="w-10 h-10 rounded-4xl"
+                    src={user.photoURL}
+                    alt=""
+                    referrerpolicy="no-referrer"
+                  />
+                ) : (
+                  <FaUser color="white" className="w-8 h-8"></FaUser>
+                )}
               </div>
               <ul
                 tabIndex="-1"
@@ -58,7 +71,7 @@ const Navbar = () => {
               </ul>
             </div>
             <button
-              onClick={() => logOutUser()}
+              onClick={handleLogout}
               className="btn btn-primary text-white"
             >
               Sign Out

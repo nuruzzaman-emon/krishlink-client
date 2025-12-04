@@ -7,44 +7,46 @@ import Loading from "../Loading/Loading";
 const Register = () => {
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { loginByGoogle } = useAuth();
-  const { loading } = useAuth();
-
   const { registerUser } = useAuth();
 
   const handleGoogleSignIn = () => {
-    loginByGoogle().then((data) => {
+    setLoading(true);
+    loginByGoogle().then(() => {
+      setLoading(false);
       navigate(location.state || "/");
-      console.log(data);
     });
   };
 
   const handleRegisterUser = (e) => {
     e.preventDefault();
+    setLoading(true);
+
+    //set error empty
+    setError("");
     const name = e.target.name.value;
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const validPassword = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
-    //set error empty
-    setError("");
-
     if (!validPassword.test(password)) {
-      return setError(
+      setLoading(false);
+      setError(
         "you must include one uppercase one lowercase and it should be six characters"
       );
+      return;
     }
-    console.log(name, photo, email, password);
     registerUser(email, password)
-      .then((data) => {
+      .then(() => {
+        setLoading(false);
         navigate(location.state || "/");
-        console.log(data.user);
       })
       .catch((error) => {
-        console.log(error);
+        setLoading(false);
         setError(error.message);
       });
   };

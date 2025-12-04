@@ -8,14 +8,15 @@ const Login = () => {
   const location = useLocation();
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { loginUser, loginByGoogle } = useAuth();
   const navigate = useNavigate();
-  const { loading, setLoading } = useAuth();
 
   const handleGoogleSignIn = () => {
+    setLoading(true);
     loginByGoogle()
-      .then((data) => {
-        console.log(data.user);
+      .then(() => {
+        setLoading(false);
         navigate(location.state || "/");
       })
       .catch((error) => {
@@ -24,24 +25,23 @@ const Login = () => {
   };
 
   const handleLoginUser = (e) => {
+    setLoading(true);
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
     loginUser(email, password)
-      .then((data) => {
-        console.log(data.user);
+      .then(() => {
+        setLoading(false);
         navigate(location.state || "/");
       })
       .catch((error) => {
-        console.log(error);
         setError(error.message);
       });
   };
 
-  // if (loading) {
-  //   return <Loading></Loading>;
-  // }
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <div className="relative">
