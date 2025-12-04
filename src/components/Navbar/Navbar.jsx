@@ -16,7 +16,7 @@ const Navbar = () => {
 
   // console.log(user);
   const links = (
-    <div className="text-lg md:text-2xl font-bold">
+    <div className="text-lg md:text-2xl font-bold ">
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/allcrops"}>AllCrops</NavLink>
       {!user && (
@@ -57,15 +57,15 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 p-2 shadow-sm"
+                className="dropdown-content menu bg-base-100 rounded-box z-20 w-36 p-2 shadow-sm"
               >
-                <li className="font-bold text-[#FC427B]">
+                <li className="text-base font-bold text-[#FC427B]">
                   <NavLink to="/profile">My Profile</NavLink>
                 </li>
-                <li className="font-bold text-[#FC427B]">
+                <li className="text-base font-bold text-[#FC427B]">
                   <NavLink to="/mypost">My Post</NavLink>
                 </li>
-                <li className="font-bold text-[#FC427B]">
+                <li className="text-base font-bold text-[#FC427B]">
                   <NavLink to="/myinterest">My Interest</NavLink>
                 </li>
               </ul>

@@ -58,7 +58,7 @@ const Register = () => {
   return (
     <div className="relative">
       <img
-        className="absolute w-full h-screen "
+        className="absolute w-full h-full "
         src={"https://i.ibb.co.com/gLFB5h5V/loginbg22.jpg"}
         alt=""
       />

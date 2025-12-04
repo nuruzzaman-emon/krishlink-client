@@ -6,6 +6,7 @@ import {
   Scrollbar,
   A11y,
   EffectFlip,
+  Autoplay
 } from "swiper/modules";
 
 import "swiper/css";
@@ -17,7 +18,7 @@ import "swiper/css/effect-flip";
 const Slider = () => {
   return (
     <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y, EffectFlip]}
+      modules={[Navigation, Pagination, Scrollbar, A11y,Autoplay, EffectFlip]}
       effect={"flip"}
       autoplay={{
         delay: 2500,
@@ -28,7 +29,7 @@ const Slider = () => {
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      allowTouchMove={false}
+      loop={true}
     >
       <SwiperSlide>
         <div className="relative h-[500px]">
