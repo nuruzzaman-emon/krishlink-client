@@ -13,9 +13,9 @@ const AddCrops = () => {
     e.preventDefault();
     const name = e.target.name.value;
     const image = e.target.image.value;
-    const pricePerUnit = e.target.pricePerUnit.value;
+    const pricePerUnit = Number(e.target.pricePerUnit.value);
     const unit = e.target.unit.value;
-    const quantity = e.target.quantity.value;
+    const quantity = Number(e.target.quantity.value);
     const location = e.target.location.value;
     const description = e.target.description.value;
     const type = e.target.type.value;
@@ -48,8 +48,8 @@ const AddCrops = () => {
         });
         navigate("/mypost");
         // console.log(data.data);
-      })
-      // .catch((err) => console.log(err));
+      });
+    // .catch((err) => console.log(err));
 
     // console.log(newCrop);
   };

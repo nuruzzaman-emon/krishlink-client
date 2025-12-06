@@ -56,6 +56,8 @@ Authenticated Users:<br/>
 <br/>
 (f) Logout<br/>
 <br/>
+You can see my profile, my interest and my post option by hovering profile image which is in the right side of the navbar besides the sign out btn after login</br>
+<br/>
 <br/>
 <br/>
 <br/>
@@ -108,3 +110,8 @@ Authentication:<br/>
 Hosting:<br/>
 <br/>
 (a) Vercel / Firebase Hosting
+<br/>
+<br/>
+<br/>
+Our Site <br/>
+<a>https://krish-link.web.app/</a><br/>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useAxios from "../../hooks/useAxios";
 import { useNavigate, useParams } from "react-router";
 import useAuth from "../../hooks/UseAuth";
@@ -7,8 +7,8 @@ import Loading from "../Loading/Loading";
 
 const CropDetails = () => {
   const [crop, setCrop] = useState({});
+  // console.log(crop._id);
   const [interests, setInterests] = useState([]);
-  // console.log(interests);
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -65,9 +65,11 @@ const CropDetails = () => {
 
   const handleInterestSubmit = (e) => {
     e.preventDefault();
-    const quantity = e.target.quantity.value;
-    if (quantity < 1) {
-      return setError("Oops! Quantity should be at least 1 to proceed.");
+    const quantity = Number(e.target.quantity.value);
+    if (quantity < 1 || quantity > crop?.quantity) {
+      return setError(
+        `Oops! Quantity should be at least 1 to proceed and cannot be more than ${crop?.quantity}`
+      );
     }
     const message = e.target.message.value;
     //setError empty
@@ -104,7 +106,11 @@ const CropDetails = () => {
     // .catch((err) => console.log(err));
   };
 
-  const handleAccept = (id) => {
+  const handleAccept = (interest) => {
+    const { _id: id, quantity } = interest;
+    const remainingqty = Number(crop?.quantity - quantity);
+    console.log(remainingqty);
+
     axiosinstance
       .patch(
         `product-interests/${id}`,
@@ -116,6 +122,20 @@ const CropDetails = () => {
         }
       )
       .then(() => {
+        // console.log(interest?.quantity);
+        axiosinstance
+          .patch(
+            `allcrops/${crop._id}`,
+            { quantity: remainingqty },
+            {
+              headers: {
+                authorization: `Bearer ${user.accessToken}`,
+              },
+            }
+          )
+          .then((data) => {
+            console.log(data);
+          });
         setInterests((prev) =>
           prev.map((item) =>
             item._id === id ? { ...item, status: "accepted" } : item
@@ -141,7 +161,6 @@ const CropDetails = () => {
           )
         );
       });
-
   };
 
   if (loading) {
@@ -242,7 +261,7 @@ const CropDetails = () => {
                       readOnly
                     />
                     <button className="btn btn-primary mt-4">
-                      Add Products
+                      Send Interest
                     </button>
                   </fieldset>
                 </form>
@@ -250,6 +269,7 @@ const CropDetails = () => {
             </div>
           </div>
         ) : (
+          //interest section
           <div>
             <h2 className="text-4xl font-bold text-center my-5 text-[#f6b93b]">
               See All The Interest To This Product
@@ -261,28 +281,34 @@ const CropDetails = () => {
                 </h2>{" "}
               </div>
             ) : (
-              <div className="flex justify-center items-center flex-wrap text-white text-center">
-                <table>
+              <div className="md:flex justify-center items-center text-white text-center overflow-auto">
+                <table className="border border-collapse ">
                   <thead>
                     <tr>
-                      <th className="p-3">No.</th>
-                      <th className="p-3">Name</th>
-                      <th className="p-3">Quantity</th>
-                      <th className="p-3">Message</th>
-                      <th className="p-3">Status</th>
-                      <th className="p-3">Actions</th>
+                      <th className="p-3 border border-gray-200">No.</th>
+                      <th className="p-3 border border-gray-200">Name</th>
+                      <th className="p-3 border border-gray-200">Quantity</th>
+                      <th className="p-3 border border-gray-200">Message</th>
+                      <th className="p-3 border border-gray-200">Status</th>
+                      <th className="p-3 border border-gray-200">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {interests?.map((interest, index) => (
-                      <tr key={interest.index}>
-                        <td className="p-3">{index + 1}</td>
-                        <td className="p-3">
+                      <tr key={interest._id}>
+                        <td className="p-3  border border-gray-200">
+                          {index + 1}
+                        </td>
+                        <td className="p-3  border border-gray-200">
                           {interest.userName ? interest.userName : "userName"}
                         </td>
-                        <td className=" p-1 md:p-3">{interest.quantity}</td>
-                        <td className=" p-1 md:p-3">{interest.message}</td>
-                        <td className=" p-1 md:p-3">
+                        <td className="p-3  border border-gray-200">
+                          {interest.quantity}
+                        </td>
+                        <td className="p-3  border border-gray-200">
+                          {interest.message}
+                        </td>
+                        <td className="p-3  border border-gray-200">
                           <span
                             className={`badge ${
                               interest.status === "accepted"
@@ -295,16 +321,16 @@ const CropDetails = () => {
                             {interest.status}
                           </span>
                         </td>
-                        <td className="flex gap-2 p-3">
+                        <td className="flex gap-2 p-3  border border-gray-200">
                           <button
                             className="btn btn-success"
-                            onClick={() => handleAccept(interest?._id)}
+                            onClick={() => handleAccept(interest)}
                             disabled={interest?.status !== "pending"}
                           >
                             Accept
                           </button>
                           <button
-                            onClick={() => handleReject(interest?._id)}
+                            onClick={() => handleReject(interest)}
                             className="btn  btn-error"
                             disabled={interest?.status !== "pending"}
                           >

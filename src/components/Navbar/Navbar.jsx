@@ -49,7 +49,7 @@ const Navbar = () => {
                     className="w-10 h-10 rounded-4xl"
                     src={user.photoURL}
                     alt=""
-                    referrerpolicy="no-referrer"
+                    referrerPolicy="no-referrer"
                   />
                 ) : (
                   <FaUser color="white" className="w-8 h-8"></FaUser>
